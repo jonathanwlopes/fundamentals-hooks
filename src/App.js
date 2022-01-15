@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { CounterCallback } from './components/CounterCallback';
+import { CounterEffect } from './components/CounterEffect';
+import { CounterState } from './components/CounterState';
+import { CounterProvider } from './providers/CounterProvider';
+import { ReverseContainer } from './components/ReverseContainer';
+import { CounterContextImplement } from './components/CounterContextImplement';
+import { HookFetch } from './components/HookFetch';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <CounterProvider>
+      <div className="wrapper">
+        <h1>Reverse Container</h1>
+        <ReverseContainer />
+      </div>
 
-export default App;
+      <div className="wrapper">
+        <h1>Counter State</h1>
+        <CounterState />
+      </div>
+
+      <div className="wrapper">
+        <h1>Counter Effect</h1>
+        <CounterEffect />
+      </div>
+
+      <div className="wrapper">
+        <h1>Counter Callback</h1>
+        <CounterCallback />
+      </div>
+
+      <div className="wrapper">
+        <h1>Counter Provider</h1>
+        <CounterContextImplement />
+      </div>
+
+      <div className="wrapper">
+        <h1>Hook Fetch</h1>
+        <HookFetch />
+      </div>
+    </CounterProvider>
+  );
+};
